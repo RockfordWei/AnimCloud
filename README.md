@@ -56,24 +56,24 @@ Swift  结构设计（在iOS和Perfect服务器上共享代码）：
 ``` swift
 public struct Animation: Codable {
 
-public struct Anime: Codable {
-public var name = ""
-public var picUrl = ""
-public var picCopyright = ""
-public init() { }
-}
+  public struct Anime: Codable {
+    public var name = ""
+    public var picUrl = ""
+    public var picCopyright = ""
+    public init() { }
+  }
 
-public struct AnimeCharacter: Codable {
-public var name = ""
-public var birth = ""
-public var picUrl = ""
-public var picCopyright = ""
-public init() { }
-}
+  public struct AnimeCharacter: Codable {
+    public var name = ""
+    public var birth = ""
+    public var picUrl = ""
+    public var picCopyright = ""
+    public init() { }
+  }
 
-public var anime = Anime()
-public var characters: [AnimeCharacter] = []
-public init() {}
+  public var anime = Anime()
+  public var characters: [AnimeCharacter] = []
+  public init() {}
 }
 ```
 
@@ -90,9 +90,10 @@ public struct ServerResult: Codable {
 ## iOS 移动端
 
 移动端上传数据分三步：
-1 - 填写数据
-2 - 编码
-3 - 发送
+
+1: 填写数据,
+2: 编码,
+3: 发送
 
 ### 填写数据
 
@@ -130,7 +131,7 @@ task.resume()
 ## 服务器接收
 
 ``` swift
-outes.add(Route(method: .post, uri: "/api/anime", handler: {
+routes.add(Route(method: .post, uri: "/api/anime", handler: {
   request, response in
   response.setHeader(.contentType, value: "text/json")
   let json = Data(bytes: request.postBodyBytes ?? [])
